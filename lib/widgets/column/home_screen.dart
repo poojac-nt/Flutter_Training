@@ -11,29 +11,29 @@ class ColumnExample extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            SizedBox(height: 200),
+            const SizedBox(height: 200),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
               ),
-              child: Image(
+              child: const Image(
                   fit: BoxFit.fill,
                   image: AssetImage("assets/images/images.jpeg")),
             ),
-            Text(
+            const Text(
               "Column in Flutter",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 52, color: Colors.teal),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               textAlign: TextAlign.center,
               "A widget that displays it's children in vertical array... For horizontal variant see the Row",
               style: TextStyle(fontSize: 18, color: Colors.black38),
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             Container(
@@ -44,7 +44,7 @@ class ColumnExample extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100)),
                 child: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.chevron_right,
                       size: 34,
                     )))
