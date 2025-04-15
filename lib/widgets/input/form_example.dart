@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class FormExample extends StatefulWidget {
   const FormExample({super.key});
@@ -39,7 +40,14 @@ class _FormExampleState extends State<FormExample> {
               TextFormField(
                 autofocus: true,
                 controller: controller,
-                decoration: InputDecoration(hintText: "Enter Email:"),
+                decoration: InputDecoration(
+                  filled: true,
+                  hintText: "Enter Email:",
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          BorderSide(color: Colors.deepPurple, width: 2)),
+                ),
                 validator: (String? value) {
                   if (value!.isEmpty || value == null) {
                     return "Please Enter an email";
@@ -47,11 +55,32 @@ class _FormExampleState extends State<FormExample> {
                   return null;
                 },
               ),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 focusNode: myFocusNode,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                textCapitalization: TextCapitalization.characters,
+                cursorColor: Colors.red,
+                decoration: InputDecoration(
+                    hintText: "Enter your name",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(color: Colors.grey)),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue, width: 2)),
+                    hintStyle: TextStyle(
+                        color: Colors.blue, fontStyle: FontStyle.italic)),
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(10),
+                ],
               ),
               Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(12.0),
                 child: ElevatedButton(
                     onPressed: () {
                       myFocusNode.requestFocus();
