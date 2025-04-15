@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice/widgets/appbar.dart';
 import 'package:flutter_practice/widgets/input/autocomplete_example.dart';
 import 'package:flutter_practice/widgets/input/form_example.dart';
+import 'package:flutter_practice/widgets/input/form_with_cutom_field.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const FormExample());
+        home: const CustomForm());
   }
 }
