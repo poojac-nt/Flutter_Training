@@ -17,9 +17,13 @@ class _IndexedStackExampleState extends State<IndexedStackExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Indexed Stack Demo"),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
             width: 300,
@@ -38,9 +42,10 @@ class _IndexedStackExampleState extends State<IndexedStackExample> {
             ),
           ),
           SizedBox(
-            height: 50,
+            height: 80,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: () {
@@ -57,6 +62,9 @@ class _IndexedStackExampleState extends State<IndexedStackExample> {
                   key: Key('Gesture 1'),
                 ),
               ),
+              SizedBox(
+                width: 20,
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -64,6 +72,9 @@ class _IndexedStackExampleState extends State<IndexedStackExample> {
                     for (final String name in names) PersonTracker(name: name),
                   ]),
                 ],
+              ),
+              SizedBox(
+                width: 20,
               ),
               GestureDetector(
                 onTap: () {
@@ -123,8 +134,14 @@ class _PersonTrackerState extends State<PersonTracker> {
                 counter++;
               });
             },
-            label: Text("Increment"),
-            icon: Icon(Icons.add),
+            label: Text(
+              "Increment",
+              style: TextStyle(color: Colors.black),
+            ),
+            icon: Icon(
+              Icons.add,
+              color: Colors.black,
+            ),
           ),
         ],
       ),
