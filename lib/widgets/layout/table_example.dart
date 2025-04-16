@@ -8,45 +8,86 @@ class TableExample extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Table(
-          columnWidths: <int, TableColumnWidth>{
-            0: FixedColumnWidth(64),
-            1: FixedColumnWidth(64)
+          textBaseline: TextBaseline.alphabetic,
+          columnWidths: const <int, TableColumnWidth>{
+            0: FixedColumnWidth(63),
+            1: FlexColumnWidth(),
+            2: FlexColumnWidth()
           },
-          border: TableBorder.all(),
+          border: const TableBorder.symmetric(
+              inside: BorderSide(color: Colors.grey, width: 1)),
           defaultVerticalAlignment: TableCellVerticalAlignment.intrinsicHeight,
-          children: [
+          children: const [
             TableRow(children: [
-              Container(
-                color: Colors.blue,
-                height: 50,
-              ),
-              TableCell(
-                child: Container(
-                  color: Colors.indigo,
-                  height: 50,
+              Center(
+                child: Text(
+                  "ID",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              Container(
-                color: Colors.lime,
-                height: 50,
+              TableCell(
+                child: Center(
+                  child: Text(
+                    "Name",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              Center(
+                child: Text(
+                  "Profession",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
             ]),
             TableRow(children: [
-              Container(
-                color: Colors.orange,
-                height: 50,
+              TableCenterWidget(data: "1"),
+              TableCenterWidget(data: "Radha"),
+              TableCenterWidget(
+                data: "ML Engineer",
               ),
-              Container(
-                color: Colors.purple,
-                height: 50,
+            ]),
+            TableRow(children: [
+              TableCenterWidget(data: "5"),
+              TableCenterWidget(data: "Krishna"),
+              TableCenterWidget(
+                data: "FrontEnd Engineer",
               ),
-              Container(
-                color: Colors.blue,
-                height: 50,
+            ]),
+            TableRow(children: [
+              TableCenterWidget(data: "6"),
+              TableCenterWidget(data: "Gopi"),
+              TableCenterWidget(
+                data: "Backend Engineer",
+              ),
+            ]),
+            TableRow(children: [
+              TableCenterWidget(data: "10"),
+              TableCenterWidget(data: "Radhika"),
+              TableCenterWidget(
+                data: "AI Engineer",
               ),
             ])
           ],
         ),
+      ),
+    );
+  }
+}
+
+class TableCenterWidget extends StatelessWidget {
+  const TableCenterWidget({
+    super.key,
+    required this.data,
+  });
+
+  final String data;
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        data,
+        style: const TextStyle(fontSize: 20),
       ),
     );
   }
