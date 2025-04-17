@@ -39,6 +39,45 @@ class CupertinoSliverNavbarExample extends StatelessWidget {
 class NextPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    final brightness = CupertinoTheme.brightnessOf(context);
+    return CupertinoPageScaffold(
+      child: CustomScrollView(
+        slivers: [
+          CupertinoSliverNavigationBar(
+            backgroundColor: CupertinoColors.systemBlue,
+            border: Border(
+              bottom: BorderSide(
+                  color: brightness == Brightness.light
+                      ? CupertinoColors.black
+                      : CupertinoColors.white),
+            ),
+            middle: Text("Family"),
+            largeTitle: Text("Family Group"),
+          ),
+          SliverFillRemaining(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Drag me up",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      decoration: TextDecoration.none),
+                ),
+                Text(
+                  "Tap on the leading button to go back",
+                  style: TextStyle(
+                    fontSize: 14,
+                    decoration: TextDecoration.none,
+                    color: Colors.black,
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
