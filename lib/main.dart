@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice/widgets/appbar.dart';
 import 'package:flutter_practice/widgets/async/future_builder.dart';
+import 'package:flutter_practice/widgets/async/stream_builder_example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +20,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const FutureBuilderExample());
+        home: const StreamBuilderExample());
   }
 }
